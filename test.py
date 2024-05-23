@@ -11,7 +11,11 @@ import streamlit as st
 
 # Load the dataset
 df = pd.read_csv('/Users/raeesaparsaad/ITDAA/heart.csv', delimiter=';')
-historical_data = pd.read_csv('/Users/raeesaparsaad/ITDAA/heart.csv', delimiter=';')
+try:
+    historical_data = pd.read_csv('/Users/raeesaparsaad/ITDAA/heart.csv', delimiter=';')
+except FileNotFoundError:
+    st.error("Historical data file not found. Please ensure 'historical_data.csv' is present in the directory.")
+    st.stop()
 
 # Define the features and target
 X = df.drop(columns=['target'])
@@ -43,8 +47,12 @@ joblib.dump(scaler, 'scaler.pkl')
 # import joblib
 
 # Load the trained model and scaler
-model = joblib.load('svm_model.pkl')
-scaler = joblib.load('scaler.pkl')
+try:
+    model = joblib.load('svm_model.pkl')
+    scaler = joblib.load('scaler.pkl')
+except FileNotFoundError:
+    st.error("Model or scaler file not found/saved. Please ensure 'svm_model.pkl' and 'scaler.pkl' are present in the directory.")
+    st.stop()
 
 # Create the Streamlit application
 st.title('Heart Disease Prediction Web App')
@@ -123,3 +131,6 @@ if st.button('Predict'):
     ax.legend()
 
     st.pyplot(fig)
+
+
+    
