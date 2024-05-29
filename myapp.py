@@ -17,6 +17,15 @@ except FileNotFoundError:
     st.error("Historical data file not found. Please ensure 'historical_data.csv' is present in the directory.")
     st.stop()
 
+#Create pages and sidebar
+st.markdown("# Patient details")
+st.sidebar.markdown("# Patient details")
+
+#Page for prediction results 
+st.markdown("# Results")
+st.sidebar.markdown("# Results")
+
+
 # Define the features and target
 X = df.drop(columns=['target'])
 y = df['target']
