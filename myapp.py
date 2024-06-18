@@ -12,11 +12,13 @@ import streamlit_shadcn_ui as ui
 
 # Load the dataset
 df = pd.read_csv('/Users/raeesaparsaad/ITDAA/heart.csv', delimiter=';')
+
 try:
     historical_data = pd.read_csv('/Users/raeesaparsaad/ITDAA/heart.csv', delimiter=';')
 except FileNotFoundError:
     st.error("Historical data file not found. Please ensure 'historical_data.csv' is present in the directory.")
     st.stop()
+
 
 # Define the features and target
 X = df.drop(columns=['target'])
@@ -55,7 +57,7 @@ except FileNotFoundError:
 def patient_details_page():
     st.title('Heart Disease Prediction Web App')
     st.subheader('Fill in the form below to determine further treatment')
-
+    
     # Input fields for patient details
     age = st.number_input('Age', min_value=0, max_value=120, value=25)
     sex = st.selectbox('Sex', ['Male', 'Female'])
@@ -109,16 +111,16 @@ def patient_details_page():
         # Display prediction result
         st.write("Patient details submitted successfully!")
         if prediction == 1:
-            st.write(f'Prediction: Patient likely has heart disease with a probability of {prediction_proba:.2f}.')
+            st.success(f'Prediction: Patient likely has heart disease with a probability of  {prediction_proba:.2f}.', icon="🚨")
             return input_data
         else:
-            st.write(f'Prediction: Patient likely does not have heart disease with a probability of {prediction_proba:.2f}.')
+            st.success(f'Prediction: Patient likely does not have heart disease with a probability of {prediction_proba:.2f}.', icon="✅")
             return input_data
 
 
 # Display input data distribution compared to historical data
 def results_page():
-    if 'patient_data' in st.session_state:
+    # if 'patient_data' in st.session_state:
         st.write("## Input Data Distribution vs. Historical Data")
         means = historical_data.mean()
         df1 = st.session_state['input_data']
@@ -135,11 +137,8 @@ def results_page():
         ax.legend()
 
         st.pyplot(fig)
-    else:
-        st.write("Please enter patient details first.")
-
-#ui.tabs(options=['Patient details', 'Results'], default_value='Patient details', key="kanaries")
-
+    # else:
+        # st.write("Please enter patient details first.")
 
 # Create tabs using radio buttons
 tab = ui.tabs(options=['Patient details', 'Results'], default_value='Patient details', key="kanaries")
