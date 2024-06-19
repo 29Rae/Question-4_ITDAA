@@ -28,6 +28,9 @@ class HeartDiseasePredictor:
             st.error("Historical data file not found. Please ensure the data file is present in the directory.")
             st.stop()
 
+    def filter_target_1(self, target):
+        return self.df.loc[self.df['target'] == target]
+
     def train_model(self):
         X = self.df.drop(columns=['target'])
         y = self.df['target']
