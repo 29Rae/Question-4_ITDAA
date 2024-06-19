@@ -1,5 +1,9 @@
+import os
+
+os.system("pip freeze > requirements.txt")
+
 import pandas as pd
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -119,7 +123,7 @@ class HeartDiseasePredictor:
         df1 = st.session_state['input_data']
         input_data_mean = df1.iloc[0]
 
-        # fig, ax = plt.subplots(figsize=(15, 8))
+        fig, ax = plt.subplots(figsize=(15, 8))
         ax.plot(means.index, means.values, label='Historical Mean', marker='o')
         ax.plot(input_data_mean.index, input_data_mean.values, label='Input Data', marker='o')
         ax.set_xticks(range(len(means.index)))
