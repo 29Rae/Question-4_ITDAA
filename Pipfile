@@ -10,4 +10,3 @@ name = "pypi"
 
 [requires]
 python_version = "3.11"
-matplotlib_version = "3.9.0"
