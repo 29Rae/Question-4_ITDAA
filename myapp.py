@@ -1,14 +1,14 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-# import numpy as np
-# from sklearn.model_selection import train_test_split
-# from sklearn.preprocessing import StandardScaler
-# from sklearn.svm import SVC
-# from sklearn.metrics import accuracy_score
-# import joblib
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.svm import SVC
+from sklearn.metrics import accuracy_score
+import joblib
 import streamlit as st
-# import streamlit_shadcn_ui as ui
-# import os
+import streamlit_shadcn_ui as ui
+import os
 
 class HeartDiseasePredictor:
     def __init__(self, data_path):
@@ -48,13 +48,13 @@ class HeartDiseasePredictor:
         accuracy = accuracy_score(y_test, y_pred)
         print(f"Model Accuracy: {accuracy}")
         
-        joblib.dump(self.model, 'svm_model.pkl')
-        joblib.dump(self.scaler, 'scaler.pkl')
+        joblib.dump(self.model, 'models/svm_model.pkl')
+        joblib.dump(self.scaler, 'models/scaler.pkl')
 
     def load_model(self):
         try:
-            self.model = joblib.load('svm_model.pkl')
-            self.scaler = joblib.load('scaler.pkl')
+            self.model = joblib.load('models/svm_model.pkl')
+            self.scaler = joblib.load('models/scaler.pkl')
         except FileNotFoundError:
             st.error("Model or scaler file not found/saved. Please ensure 'svm_model.pkl' and 'scaler.pkl' are present in the directory.")
             st.stop()
@@ -138,6 +138,6 @@ class HeartDiseasePredictor:
             self.results_page()
 
 if __name__ == '__main__':
-    data_path = os.path.join(os.path.dirname(__file__), 'heart.csv')
+    data_path = os.path.join(os.path.dirname(__file__), 'data/heart.csv')
     predictor = HeartDiseasePredictor(data_path)
     predictor.run()
