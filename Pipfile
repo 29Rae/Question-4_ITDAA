@@ -5,7 +5,9 @@ name = "pypi"
 
 [packages]
 
+
 [dev-packages]
 
 [requires]
 python_version = "3.11"
+matplotlib_version = "3.9.0"
