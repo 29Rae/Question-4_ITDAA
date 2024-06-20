@@ -8,7 +8,7 @@ import pandas as pd
 # from sklearn.metrics import accuracy_score
 # import joblib
 import streamlit as st
-import streamlit_shadcn_ui as ui
+# import streamlit_shadcn_ui as ui
 # import os
 
 class HeartDiseasePredictor:
