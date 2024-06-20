@@ -9,6 +9,7 @@ from sklearn.metrics import accuracy_score
 import joblib
 import streamlit as st
 import streamlit_shadcn_ui as ui
+import os
 
 class HeartDiseasePredictor:
     def __init__(self, data_path):
@@ -138,6 +139,6 @@ class HeartDiseasePredictor:
             self.results_page()
 
 if __name__ == '__main__':
-    data_path = '/Users/raeesaparsaad/ITDAA/heart.csv'
+    data_path = os.path.join(os.path.dirname(__file__), 'heart.csv')
     predictor = HeartDiseasePredictor(data_path)
     predictor.run()
