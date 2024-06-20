@@ -1,15 +1,15 @@
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.svm import SVC
-from sklearn.metrics import accuracy_score
-import joblib
+# import matplotlib.pyplot as plt
+# import seaborn as sns
+# import numpy as np
+# from sklearn.model_selection import train_test_split
+# from sklearn.preprocessing import StandardScaler
+# from sklearn.svm import SVC
+# from sklearn.metrics import accuracy_score
+# import joblib
 import streamlit as st
 import streamlit_shadcn_ui as ui
-import os
+# import os
 
 class HeartDiseasePredictor:
     def __init__(self, data_path):
