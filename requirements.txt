@@ -1,7 +1,6 @@
-numpy==1.26.4
-matplotlib==3.9.0
-seaborn==0.13.2
-scikit-learn==1.5.0
-joblib==1.4.2
-streamlit==1.34.0
-streamlit-shadcn-ui==0.1.18
+streamlit
+joblib
+numpy
+pandas
+scikit-learn
+
