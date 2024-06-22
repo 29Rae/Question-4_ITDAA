@@ -1,4 +1,6 @@
 import pandas as pd
+import streamlit as st
+import streamlit_shadcn_ui as ui
 # import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -6,8 +8,6 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score
 import joblib
-import streamlit as st
-import streamlit_shadcn_ui as ui
 import os
 
 class HeartDiseasePredictor:
