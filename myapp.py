@@ -12,6 +12,7 @@ import os
 
 class HeartDiseasePredictor:
     def __init__(self, data_path):
+        self.setup_background_pic 
         self.data_path = data_path
         self.df = None
         self.historical_data = None
@@ -19,7 +20,25 @@ class HeartDiseasePredictor:
         self.scaler = None
         self.load_data()
         self.train_model()
-        background_image = '/Users/raeesaparsaad/Downloads/heartpic.jpeg'
+        
+
+    def setup_background_pic(self):
+        # Set the page config to wide mode
+        st.set_page_config(layout="wide")
+
+        # Use custom CSS to add the background image
+        page_bg_img = '''
+        <style>
+        body {
+            background-image: url("data/heartpic.jpeg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        </style>
+        '''
+        st.markdown(page_bg_img, unsafe_allow_html=True)
 
     def load_data(self):
         try:
