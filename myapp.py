@@ -19,6 +19,7 @@ class HeartDiseasePredictor:
         self.scaler = None
         self.load_data()
         self.train_model()
+        background_image = '/Users/raeesaparsaad/Downloads/heartpic.jpeg'
 
     def load_data(self):
         try:
